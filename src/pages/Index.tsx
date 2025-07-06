@@ -390,7 +390,7 @@ const Index = () => {
           {/* Footer */}
           <div className="text-center py-8 text-olive-700">
             <p className="text-lg font-light">Scan QR code for quick access to our digital menu</p>
-            <p className="text-sm mt-2">Call us: +91 98765 43210</p>
+            <p className="text-sm mt-2">Call us: +91 7800327061</p>
           </div>
         </div>
       )}
