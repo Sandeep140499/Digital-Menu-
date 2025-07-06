@@ -18,7 +18,7 @@ const Index = () => {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const fromQR = urlParams.get('qr') === 'true' || document.referrer.includes('qr');
-    
+
     if (fromQR || window.location.hash === '#qr') {
       setShowWelcome(true);
     } else {
@@ -234,7 +234,7 @@ const Index = () => {
 
       {showMenu && (
         <div className="min-h-screen bg-gradient-to-br from-olive-100 via-olive-200 to-olive-300">
-          
+
 
           {/* Professional Header with subtle animations */}
           <div className="relative overflow-hidden bg-gradient-to-r from-olive-600 via-olive-700 to-olive-800 text-white py-16 px-4">
@@ -248,14 +248,14 @@ const Index = () => {
                   Feel the taste
                 </p>
               </div>
-              
+
               {/* Contact Info and Actions */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                   <Phone className="w-4 h-4" />
                   <span className="text-sm font-medium">+91 7800327061</span>
                 </div>
-                
+
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button className="bg-white text-olive-600 hover:bg-olive-50 font-semibold px-6 py-2 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
@@ -284,7 +284,7 @@ const Index = () => {
                 </Dialog>
               </div>
             </div>
-            
+
             {/* Subtle background elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
               <div className="absolute top-10 left-10 w-20 h-20 bg-white/5 rounded-full"></div>
@@ -296,26 +296,21 @@ const Index = () => {
           </div>
 
           {/* New Launched Items Banner */}
-          <div className="w-full flex justify-center py-6 bg-gradient-to-r from-yellow-100 via-orange-50 to-yellow-100 animate-pulse">
+          <div className="w-full flex justify-center py-6 bg-gradient-to-r from-yellow-100 via-orange-50 to-yellow-100">
             <Dialog>
               <DialogTrigger asChild>
-                <button className="flex items-center gap-3 px-8 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg text-white font-bold text-lg hover:scale-105 transition-transform duration-300 focus:outline-none">
+                <button
+                  className="flex items-center gap-3 px-8 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg text-white font-bold text-lg hover:scale-105 transition-transform duration-300 focus:outline-none"
+                  aria-label="See new launched items"
+                >
                   <span className="animate-bounce text-2xl">✨</span>
-                  <span className="bg-white/20 px-4 py-1 rounded-full animate-shimmer font-semibold tracking-wide">
+                  <span className="bg-white/20 px-4 py-1 rounded-full font-semibold tracking-wide animate-shimmer">
                     New Launched Items
                   </span>
                   <span className="animate-pulse text-2xl">🚀</span>
                 </button>
               </DialogTrigger>
-              <DialogContent className="max-w-md">
-                <DialogHeader>
-                  <DialogTitle>
-                    <span className="flex items-center gap-2 text-2xl font-bold text-orange-500">
-                      <span role="img" aria-label="megaphone">📢</span>
-                      New Launches
-                    </span>
-                  </DialogTitle>
-                </DialogHeader>
+              <DialogContent className="max-w-md backdrop-blur-lg bg-white/80">
                 <div className="flex flex-col items-center justify-center py-8">
                   <div className="animate-bounce mb-4">
                     <img
@@ -324,7 +319,10 @@ const Index = () => {
                       className="w-32 h-20 object-cover rounded-xl shadow-lg"
                     />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">Coming Soon!</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                    <span role="img" aria-label="megaphone">📢</span>
+                    Coming Soon!
+                  </h3>
                   <p className="text-gray-600 text-center mb-4">
                     Exciting new items and offers will be launched here.<br />
                     Stay tuned for something delicious!
@@ -343,9 +341,9 @@ const Index = () => {
               <CardContent className="p-0">
                 <Accordion type="multiple" value={openSections} onValueChange={setOpenSections} className="w-full">
                   {Object.entries(menuData).map(([key, section], index) => (
-                    <AccordionItem 
-                      key={key} 
-                      value={key} 
+                    <AccordionItem
+                      key={key}
+                      value={key}
                       className="border-b border-olive-100 last:border-b-0"
                     >
                       <AccordionTrigger className="px-6 py-4 hover:bg-gradient-to-r hover:from-olive-50 hover:to-green-50 transition-all duration-300 group">
@@ -359,8 +357,8 @@ const Index = () => {
                             </span>
                           </div>
                           <div className="ml-auto mr-4">
-                            <img 
-                              src={section.image} 
+                            <img
+                              src={section.image}
                               alt={section.title}
                               className="w-16 h-10 object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300"
                             />
@@ -370,7 +368,7 @@ const Index = () => {
                       <AccordionContent className="px-6 pb-4">
                         <div className="space-y-3">
                           {section.items.map((item, itemIndex) => (
-                            <div 
+                            <div
                               key={itemIndex}
                               className="flex justify-between items-center p-3 bg-gradient-to-r from-olive-25 to-green-25 rounded-xl hover:from-olive-50 hover:to-green-50 transition-all duration-300 hover:shadow-sm"
                             >
