@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { QrCode, Coffee, Utensils, Cookie, Phone, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -105,7 +104,7 @@ const Index = () => {
     "momos-steam": {
       title: "Momos - Steam",
       icon: <Utensils className="w-5 h-5" />,
-      image: "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=400&h=250&fit=crop",
+      image: "https://www.thespruceeats.com/thmb/UnVh_-znw7ikMUciZIx5sNqBtTU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/steamed-momos-wontons-1957616-hero-01-1c59e22bad0347daa8f0dfe12894bc3c.jpg",
       items: [
         { name: "Veg Steam Momos", price: "₹40 / 80" },
         { name: "Paneer Steam Momos", price: "₹45 / 90" },
@@ -115,7 +114,7 @@ const Index = () => {
     "momos-fried": {
       title: "Momos - Fried",
       icon: <Utensils className="w-5 h-5" />,
-      image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&h=250&fit=crop",
+      image: "https://www.thespruceeats.com/thmb/UnVh_-znw7ikMUciZIx5sNqBtTU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/steamed-momos-wontons-1957616-hero-01-1c59e22bad0347daa8f0dfe12894bc3c.jpg",
       items: [
         { name: "Veg Fried Momos", price: "₹50 / 100" },
         { name: "Paneer Fried Momos", price: "₹60 / 120" },
@@ -125,7 +124,7 @@ const Index = () => {
     "momos-kurkure": {
       title: "Momos - Kurkure",
       icon: <Utensils className="w-5 h-5" />,
-      image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400&h=250&fit=crop",
+      image: "https://www.thespruceeats.com/thmb/UnVh_-znw7ikMUciZIx5sNqBtTU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/steamed-momos-wontons-1957616-hero-01-1c59e22bad0347daa8f0dfe12894bc3c.jpg",
       items: [
         { name: "Veg Kurkure", price: "₹60 / 120" },
         { name: "Paneer Kurkure", price: "₹70 / 109" },
@@ -135,7 +134,7 @@ const Index = () => {
     "pasta": {
       title: "Pasta",
       icon: <Utensils className="w-5 h-5" />,
-      image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=250&fit=crop",
+      image: "https://s.lightorangebean.com/media/20240914160809/Spicy-Penne-Pasta_-done.png",
       items: [
         { name: "White Sauce Pasta", price: "₹129" },
         { name: "Red Sauce Pasta", price: "₹129" },
@@ -204,7 +203,7 @@ const Index = () => {
     "garlic-bread": {
       title: "Garlic Bread",
       icon: <Utensils className="w-5 h-5" />,
-      image: "https://images.unsplash.com/photo-1619985632461-f33748ef8d51?w=400&h=250&fit=crop",
+      image: "https://www.locatelli.com/wp-content/uploads/2020/09/locatelli-italian-garlic-bread-recipe-1920-500x500.jpg",
       items: [
         { name: "Cheese Garlic Bread", price: "₹99" }
       ]
@@ -235,6 +234,8 @@ const Index = () => {
 
       {showMenu && (
         <div className="min-h-screen bg-gradient-to-br from-olive-100 via-olive-200 to-olive-300">
+          
+
           {/* Professional Header with subtle animations */}
           <div className="relative overflow-hidden bg-gradient-to-r from-olive-600 via-olive-700 to-olive-800 text-white py-16 px-4">
             <div className="absolute inset-0 bg-black opacity-10"></div>
@@ -252,7 +253,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                   <Phone className="w-4 h-4" />
-                  <span className="text-sm font-medium">+91 98765 43210</span>
+                  <span className="text-sm font-medium">+91 7800327061</span>
                 </div>
                 
                 <Dialog>
@@ -292,6 +293,48 @@ const Index = () => {
               <div className="absolute top-1/2 right-1/3 w-8 h-8 bg-white/5 rounded-full"></div>
               <div className="absolute bottom-20 right-10 w-14 h-14 bg-white/5 rounded-full"></div>
             </div>
+          </div>
+
+          {/* New Launched Items Banner */}
+          <div className="w-full flex justify-center py-6 bg-gradient-to-r from-yellow-100 via-orange-50 to-yellow-100 animate-pulse">
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="flex items-center gap-3 px-8 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg text-white font-bold text-lg hover:scale-105 transition-transform duration-300 focus:outline-none">
+                  <span className="animate-bounce text-2xl">✨</span>
+                  <span className="bg-white/20 px-4 py-1 rounded-full animate-shimmer font-semibold tracking-wide">
+                    New Launched Items
+                  </span>
+                  <span className="animate-pulse text-2xl">🚀</span>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md">
+                <DialogHeader>
+                  <DialogTitle>
+                    <span className="flex items-center gap-2 text-2xl font-bold text-orange-500">
+                      <span role="img" aria-label="megaphone">📢</span>
+                      New Launches
+                    </span>
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="flex flex-col items-center justify-center py-8">
+                  <div className="animate-bounce mb-4">
+                    <img
+                      src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=120&fit=crop"
+                      alt="Coming Soon"
+                      className="w-32 h-20 object-cover rounded-xl shadow-lg"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">Coming Soon!</h3>
+                  <p className="text-gray-600 text-center mb-4">
+                    Exciting new items and offers will be launched here.<br />
+                    Stay tuned for something delicious!
+                  </p>
+                  <span className="inline-block bg-gradient-to-r from-yellow-300 to-orange-400 text-white px-4 py-2 rounded-full font-bold shadow animate-pulse">
+                    Attractive Offers Await!
+                  </span>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
 
           {/* Menu Content with professional animations */}

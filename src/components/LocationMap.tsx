@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 const LocationMap = () => {
   const restaurantLocation = {
     name: "Chapter 1 Cafe",
-    address: "123 Food Street, Gourmet District, City 110001",
-    phone: "+91 98765 43210",
+    address: "Police Booth, Block A, Katwaria Sarai, New Delhi, Delhi, India, 110016",
+    phone: "+91 7800327061",
     hours: "10:00 AM - 11:00 PM",
     rating: 4.8,
-    coordinates: "28.6139, 77.2090" // Delhi coordinates as example
+    coordinates: "28.5073, 77.1839" // Approximate coordinates for Katwaria Sarai, New Delhi
   };
 
   const handleGetDirections = () => {
