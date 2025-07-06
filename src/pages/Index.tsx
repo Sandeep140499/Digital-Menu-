@@ -16,19 +16,13 @@ const Index = () => {
 
   // Check if user came from QR scan
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const fromQR = urlParams.get('qr') === 'true' || document.referrer.includes('qr');
-
-    if (fromQR || window.location.hash === '#qr') {
-      setShowWelcome(true);
-    } else {
-      setShowMenu(true);
-    }
+    setShowWelcome(true);
   }, []);
 
   const handleWelcomeComplete = () => {
     setShowWelcome(false);
     setShowMenu(true);
+    localStorage.setItem("hasSeenWelcome", "true");
   };
 
   const menuData = {
