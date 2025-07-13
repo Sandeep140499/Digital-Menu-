@@ -145,12 +145,24 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 40, opacity: 0 }}
             transition={{ duration: 0.7, type: "spring" }}
+            style={{
+              minHeight: "420px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
           >
             <motion.div
               className="flex justify-center mb-2"
               initial={{ scale: 0.7, rotate: -10 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 120, delay: 0.2 }}
+              style={{
+                minHeight: "56px",
+                alignItems: "center",
+                justifyContent: "center",
+                display: "flex",
+              }}
             >
               <Coffee className="w-14 h-14 sm:w-16 sm:h-16 text-white drop-shadow-lg animate-bounce" />
             </motion.div>

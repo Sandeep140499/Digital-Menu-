@@ -181,10 +181,10 @@ const Index = () => {
     "sweetcorn": {
       title: "Sweetcorn",
       icon: <Utensils className="w-5 h-5" />,
-      image: "https://rakskitchen.net/wp-content/uploads/2022/01/crispy-corn-recipe.jpg",
+      image: "https://rakskitchen.net/wp-content/uploads/2022/01/crispy-corn-recipe.jpg", // Main sweet corn dish image
       items: [
         { name: "Steamed Salted Sweetcorn (S/M)", price: "₹39 / 59" },
-        { name: "Peri-Peri Sweetcorn (S/M)", price: "₹59 / 89" },
+        { name: "Peri-Peri Sweetcorn (S/M)", price: "₹59 / 89"  },
         { name: "Cheesy Sweetcorn (S/M)", price: "₹79 / 99" }
       ]
     },
@@ -364,11 +364,7 @@ const Index = () => {
               >
                 <div className="relative w-full aspect-[16/7] overflow-hidden">
                   <img
-                    src={
-                      key === "sweetcorn"
-                        ? "https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=900&h=400&fit=crop"
-                        : section.image
-                    }
+                    src={section.image}
                     alt={section.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:brightness-90"
                     loading="lazy"
@@ -376,7 +372,6 @@ const Index = () => {
                   <div className="absolute top-3 left-3 bg-white/80 rounded-full p-2 shadow">
                     {section.icon}
                   </div>
-                  {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
@@ -385,7 +380,6 @@ const Index = () => {
                   </h2>
                   <ul className="space-y-2 flex-1">
                     {section.items.map((item, idx) => {
-                      // Highlight "Extra", "Add-On", "Add On", "Addon" in item names
                       const parts = item.name.split(/(Extra|Add[- ]?On|Addon)/i);
                       return (
                         <li
@@ -398,6 +392,14 @@ const Index = () => {
                             }`}
                         >
                           <span className="text-gray-800 font-medium flex flex-wrap items-center gap-1">
+                            {/* Show dish image for sweetcorn items */}
+                            {key === "sweetcorn" && item.image && (
+                              <img
+                                src={item.image}
+                                alt={item.name}
+                                className="w-10 h-10 object-cover rounded-full mr-2 border border-olive-200 shadow"
+                              />
+                            )}
                             {parts.map((part, i) =>
                               /extra|add[- ]?on|addon/i.test(part) ? (
                                 <span
