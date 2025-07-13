@@ -128,8 +128,14 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
           exit={{ opacity: 0, scale: 0.97 }}
           transition={{ duration: 0.7, type: "spring" }}
         >
-          {/* Blurred green background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-green-300 via-green-600 to-green-900 bg-opacity-80 backdrop-blur-[6px] transition-all duration-700" />
+          {/* Blurred green background using #16a34a */}
+          <div
+            className="absolute inset-0 bg-[#16a34a] bg-opacity-90 backdrop-blur-[6px] transition-all duration-700"
+            style={{
+              background:
+                "linear-gradient(120deg, #16a34a 60%, #166534 100%)",
+            }}
+          />
           {/* Sparkle effect */}
           <Sparkle />
           {/* Greeting Card */}
