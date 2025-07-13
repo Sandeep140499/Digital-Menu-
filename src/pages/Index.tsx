@@ -237,108 +237,123 @@ const Index = () => {
 
 
           {/* Professional Header with subtle animations */}
-          <div className="relative overflow-hidden bg-gradient-to-r from-olive-600 via-olive-700 to-olive-800 text-white py-16 px-4">
-            <div className="absolute inset-0 bg-black opacity-10"></div>
-            <div className="relative z-10 text-center max-w-4xl mx-auto">
-              <div className="animate-fade-in">
-                <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-lg">
-                  Chapter 1 Cafe
-                </h1>
-                <p className="text-xl md:text-2xl font-light mb-8 text-white/90">
-                  Feel the taste
-                </p>
-              </div>
+          <div
+  className="relative overflow-hidden text-white py-16 px-4"
+  style={{
+    background: "linear-gradient(90deg, #16a34a 0%, #166534 100%)"
+  }}
+>
+  <div className="absolute inset-0 bg-black opacity-10"></div>
+  <div className="relative z-10 text-center max-w-4xl mx-auto">
+    <div className="animate-fade-in">
+      <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-lg">
+        Chapter 1 Cafe
+      </h1>
+      <p className="text-xl md:text-2xl font-light mb-8 text-white/90">
+        Feel the taste
+      </p>
+    </div>
 
-              {/* Contact Info and Actions */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-                <button
-                  className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full focus:outline-none hover:bg-white/20 transition"
-                  onClick={() => window.open("tel:+918447412646")}
-                  aria-label="Call Chapter 1 Cafe"
-                  type="button"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span className="text-sm font-medium">+91 8447412646</span>
-                </button>
+    {/* Contact Info and Actions */}
+    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+      <button
+        className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full focus:outline-none hover:bg-white/20 transition"
+        onClick={() => window.open("tel:+918447412646")}
+        aria-label="Call Chapter 1 Cafe"
+        type="button"
+      >
+        <Phone className="w-4 h-4" />
+        <span className="text-sm font-medium">+91 8447412646</span>
+      </button>
 
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button className="bg-white text-olive-600 hover:bg-olive-50 font-semibold px-6 py-2 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
-                      <QrCode className="w-4 h-4 mr-2" />
-                      QR Code
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-md">
-                    <QRCodeGenerator />
-                  </DialogContent>
-                </Dialog>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button className="bg-white text-olive-600 hover:bg-olive-50 font-semibold px-6 py-2 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+            <QrCode className="w-4 h-4 mr-2" />
+            QR Code
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-md">
+          <QRCodeGenerator />
+        </DialogContent>
+      </Dialog>
 
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button className="bg-white/20 border border-white/30 text-white hover:bg-white/30 font-semibold px-6 py-2 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      Location
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl max-h-[80vh]">
-                    <DialogHeader>
-                      <DialogTitle>Chapter 1 Cafe Location</DialogTitle>
-                    </DialogHeader>
-                    <LocationMap />
-                  </DialogContent>
-                </Dialog>
-              </div>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button className="bg-white/20 border border-white/30 text-white hover:bg-white/30 font-semibold px-6 py-2 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+            <MapPin className="w-4 h-4 mr-2" />
+            Location
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="max-w-4xl max-h-[80vh]">
+          <DialogHeader>
+            <DialogTitle>Chapter 1 Cafe Location</DialogTitle>
+          </DialogHeader>
+          <LocationMap />
+        </DialogContent>
+      </Dialog>
+    </div>
+
+    {/* New Launched Items Banner - Now inside header and more attractive */}
+    <div className="flex justify-center mt-4">
+      <Dialog>
+        <DialogTrigger asChild>
+          <button
+            className="flex flex-col items-center gap-2 px-8 py-5 rounded-2xl bg-gradient-to-r from-green-500 via-yellow-400 to-orange-400 shadow-xl hover:scale-105 transition-transform duration-300 border-4 border-white/60"
+            aria-label="See new launched items"
+          >
+            <span className="text-3xl animate-bounce">✨</span>
+            <span className="text-xl font-bold text-white drop-shadow-lg tracking-wide">
+              🎉 Just Launched!
+            </span>
+            <span className="text-sm text-white/90 font-medium">
+              Explore our latest chef specials &amp; seasonal treats.
+            </span>
+            <span className="inline-block bg-white/20 px-4 py-1 rounded-full font-semibold tracking-wide mt-2 animate-shimmer text-white">
+              Tap to see what's new!
+            </span>
+          </button>
+        </DialogTrigger>
+        <DialogContent className="max-w-md backdrop-blur-lg bg-white/90 rounded-2xl shadow-2xl">
+          <div className="flex flex-col items-center justify-center py-8">
+            <div className="animate-bounce mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=200&fit=crop"
+                alt="New Launch"
+                className="w-40 h-24 object-cover rounded-xl shadow-lg"
+              />
             </div>
-
-            {/* Subtle background elements */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-              <div className="absolute top-10 left-10 w-20 h-20 bg-white/5 rounded-full"></div>
-              <div className="absolute top-20 right-20 w-16 h-16 bg-white/5 rounded-full"></div>
-              <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-white/5 rounded-full"></div>
-              <div className="absolute top-1/2 right-1/3 w-8 h-8 bg-white/5 rounded-full"></div>
-              <div className="absolute bottom-20 right-10 w-14 h-14 bg-white/5 rounded-full"></div>
-            </div>
+            <h3 className="text-2xl font-bold text-olive-700 mb-2 flex items-center gap-2">
+              <span role="img" aria-label="megaphone">📢</span>
+              Introducing Our Latest Creations!
+            </h3>
+            <p className="text-gray-700 text-center mb-4">
+              We regularly launch new items to delight your taste buds.<br />
+              These are chef's specials, seasonal treats, or customer favorites—brought to you first!
+            </p>
+            <ul className="text-left text-olive-700 font-semibold mb-4 space-y-1">
+              <li>• Unique flavors &amp; recipes</li>
+              <li>• Limited-time offers</li>
+              <li>• Special combos &amp; festive treats</li>
+            </ul>
+            <span className="inline-block bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-4 py-2 rounded-full font-bold shadow animate-pulse">
+              Try them before anyone else!
+            </span>
           </div>
+        </DialogContent>
+      </Dialog>
+    </div>
+  </div>
 
-          {/* New Launched Items Banner */}
-          <div className="w-full flex justify-center py-6 bg-gradient-to-r from-yellow-100 via-orange-50 to-yellow-100">
-            <Dialog>
-              <DialogTrigger asChild>
-                <button
-                  className="flex items-center gap-3 px-8 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg text-white font-bold text-lg hover:scale-105 transition-transform duration-300"
-                  aria-label="See new launched items"
-                >
-                  <span className="animate-bounce text-2xl">✨</span>
-                  <span className="bg-white/20 px-4 py-1 rounded-full font-semibold tracking-wide animate-shimmer">
-                    New Launched Items
-                  </span>
-                  <span className="animate-pulse text-2xl">🚀</span>
-                </button>
-              </DialogTrigger>
-              <DialogContent className="max-w-md backdrop-blur-lg bg-white/80">
-                <div className="flex flex-col items-center justify-center py-8">
-                  <div className="animate-bounce mb-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=120&fit=crop"
-                      alt="Coming Soon"
-                      className="w-32 h-20 object-cover rounded-xl shadow-lg"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2 flex items-center gap-2">
-                    <span role="img" aria-label="megaphone">📢</span>
-                    Coming Soon!
-                  </h3>
-                  <p className="text-gray-600 text-center mb-4">
-                    Exciting new items and offers will be launched here.<br />
-                    Stay tuned for something delicious!
-                  </p>
-                  <span className="inline-block bg-gradient-to-r from-yellow-300 to-orange-400 text-white px-4 py-2 rounded-full font-bold shadow animate-pulse">
-                    Attractive Offers Await!
-                  </span>
-                </div>
-              </DialogContent>
-            </Dialog>
-          </div>
+  {/* Subtle background elements */}
+  <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    <div className="absolute top-10 left-10 w-20 h-20 bg-white/5 rounded-full"></div>
+    <div className="absolute top-20 right-20 w-16 h-16 bg-white/5 rounded-full"></div>
+    <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-white/5 rounded-full"></div>
+    <div className="absolute top-1/2 right-1/3 w-8 h-8 bg-white/5 rounded-full"></div>
+    <div className="absolute bottom-20 right-10 w-14 h-14 bg-white/5 rounded-full"></div>
+  </div>
+</div>
 
           {/* Menu Content with professional cards and images */}
           <div className="max-w-5xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">

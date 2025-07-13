@@ -2,6 +2,44 @@ import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Coffee, Heart, MapPin } from "lucide-react";
 
+// Sparkle effect component
+const Sparkle = () => (
+  <div className="pointer-events-none absolute inset-0 z-0">
+    {[...Array(18)].map((_, i) => (
+      <motion.div
+        key={i}
+        className="absolute"
+        style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+        }}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{
+          opacity: [0, 1, 0],
+          scale: [0.5, 1.2, 0.5],
+        }}
+        transition={{
+          duration: 2.5 + Math.random() * 1.5,
+          repeat: Infinity,
+          delay: Math.random() * 2,
+        }}
+      >
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <g filter="url(#sparkle-blur)">
+            <circle cx="9" cy="9" r="2.5" fill="#b9fbc0" fillOpacity="0.8" />
+            <circle cx="9" cy="9" r="1.5" fill="#16a34a" fillOpacity="0.7" />
+          </g>
+          <defs>
+            <filter id="sparkle-blur" x="0" y="0" width="18" height="18" filterUnits="userSpaceOnUse">
+              <feGaussianBlur stdDeviation="1.5" />
+            </filter>
+          </defs>
+        </svg>
+      </motion.div>
+    ))}
+  </div>
+);
+
 // Daily quotes for variety
 const dailyQuotes = [
   "Savor the moment, one sip at a time.",
@@ -84,13 +122,24 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 bg-gradient-to-br from-olive-700 via-olive-800 to-olive-900 flex items-center justify-center z-50"
-          initial={{ opacity: 0, scale: 0.95, y: 40 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 40 }}
-          transition={{ duration: 0.8, type: "spring" }}
+          className="fixed inset-0 z-[100] flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.97 }}
+          transition={{ duration: 0.7, type: "spring" }}
         >
-          <div className="text-center text-white space-y-5 px-2 sm:px-4 w-full max-w-lg sm:max-w-xl md:max-w-2xl overflow-y-auto max-h-[95vh]">
+          {/* Blurred green background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-green-300 via-green-600 to-green-900 bg-opacity-80 backdrop-blur-[6px] transition-all duration-700" />
+          {/* Sparkle effect */}
+          <Sparkle />
+          {/* Greeting Card */}
+          <motion.div
+            className="relative z-10 text-center text-white space-y-5 px-2 sm:px-4 w-full max-w-lg sm:max-w-xl md:max-w-2xl"
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 40, opacity: 0 }}
+            transition={{ duration: 0.7, type: "spring" }}
+          >
             <motion.div
               className="flex justify-center mb-2"
               initial={{ scale: 0.7, rotate: -10 }}
@@ -130,7 +179,7 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
               transition={{ delay: 0.8 }}
             >
               Katwaria Sarai{" "}
-              <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-red-300 fill-current animate-pulse" />
+              <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-green-200 fill-current animate-pulse" />
             </motion.div>
             {/* Partners Section */}
             <motion.div
@@ -187,15 +236,15 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
                 <span className="text-xs text-gray-600 text-center mt-1 max-w-xs">
                   New items &amp; offers announced first on Instagram!
                   <br />
-                  <span className="font-semibold text-orange-500">
+                  <span className="font-semibold text-green-700">
                     Follow us for more &amp; exciting outlet offers!
                   </span>
                 </span>
               </div>
               {/* Google Map */}
               <div className="flex flex-col items-center bg-white/90 rounded-2xl shadow-lg px-4 py-3 w-full max-w-xs">
-                <MapPin className="w-7 h-7 sm:w-8 sm:h-8 text-olive-700 mb-2" />
-                <span className="text-sm sm:text-base font-bold text-olive-700">
+                <MapPin className="w-7 h-7 sm:w-8 sm:h-8 text-green-700 mb-2" />
+                <span className="text-sm sm:text-base font-bold text-green-700">
                   Find our other outlet
                 </span>
                 <span className="text-xs text-gray-600 text-center mt-1">
@@ -215,7 +264,7 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
             <div className="mt-2 text-xs text-white/80">
               In collaboration with our trusted delivery partners.
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
