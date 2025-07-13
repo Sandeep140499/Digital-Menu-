@@ -8,7 +8,7 @@ const LocationMap = () => {
     address:
       "F-9 124B, Shaheed Jeet Singh Marg, NRPC Colony, Block B, Katwaria Sarai, New Delhi, Delhi 110016",
     landmark: "Police Post Katwaria Sarai",
-    phone: "+91 7800327061",
+    phone: "+91 8447412646",
     hours: "10:00 AM - 11:00 PM",
     rating: 4.8,
     coordinates: "28.5073, 77.1839",
