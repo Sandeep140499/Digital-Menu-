@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Coffee, Heart, MapPin } from "lucide-react";
 
-// Sparkle effect component
 const Sparkle = () => (
   <div className="pointer-events-none absolute inset-0 z-0">
     {[...Array(18)].map((_, i) => (
@@ -30,7 +29,14 @@ const Sparkle = () => (
             <circle cx="9" cy="9" r="1.5" fill="#16a34a" fillOpacity="0.7" />
           </g>
           <defs>
-            <filter id="sparkle-blur" x="0" y="0" width="18" height="18" filterUnits="userSpaceOnUse">
+            <filter
+              id="sparkle-blur"
+              x="0"
+              y="0"
+              width="18"
+              height="18"
+              filterUnits="userSpaceOnUse"
+            >
               <feGaussianBlur stdDeviation="1.5" />
             </filter>
           </defs>
@@ -40,7 +46,6 @@ const Sparkle = () => (
   </div>
 );
 
-// Daily quotes for variety
 const dailyQuotes = [
   "Savor the moment, one sip at a time.",
   "Good food, good mood, great day!",
@@ -72,7 +77,6 @@ function getGreetingAndQuote() {
     greeting = "Good Night";
     suggestion = "End your day with a delightful treat!";
   }
-  // Change quote daily
   const quote = dailyQuotes[now.getDay()];
   return { greeting, suggestion, quote };
 }
@@ -128,120 +132,81 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
           exit={{ opacity: 0, scale: 0.97 }}
           transition={{ duration: 0.7, type: "spring" }}
         >
-          {/* Blurred green background using #16a34a */}
           <div
-            className="absolute inset-0 bg-[#16a34a] bg-opacity-90 backdrop-blur-[6px] transition-all duration-700"
+            className="absolute inset-0 bg-[#16a34a] bg-opacity-90 backdrop-blur-[6px]"
             style={{
-              background:
-                "linear-gradient(120deg, #16a34a 60%, #166534 100%)",
+              background: "linear-gradient(120deg, #16a34a 60%, #166534 100%)",
             }}
           />
-          {/* Sparkle effect */}
           <Sparkle />
-          {/* Greeting Card */}
           <motion.div
-            className="relative z-10 text-center text-white space-y-5 px-2 sm:px-4 w-full max-w-lg sm:max-w-xl md:max-w-2xl"
+            className="relative z-10 text-white text-center space-y-5 w-full px-4 sm:px-6 md:px-10 max-w-xs sm:max-w-md md:max-w-3xl"
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 40, opacity: 0 }}
             transition={{ duration: 0.7, type: "spring" }}
-            style={{
-              minHeight: "420px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
           >
             <motion.div
               className="flex justify-center mb-2"
               initial={{ scale: 0.7, rotate: -10 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 120, delay: 0.2 }}
-              style={{
-                minHeight: "56px",
-                alignItems: "center",
-                justifyContent: "center",
-                display: "flex",
-              }}
             >
-              <Coffee className="w-14 h-14 sm:w-16 sm:h-16 text-white drop-shadow-lg animate-bounce" />
+              <Coffee className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-white drop-shadow-lg animate-bounce" />
             </motion.div>
-            <motion.h1
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-            >
+            <motion.h1 className="text-xl sm:text-2xl md:text-3xl font-bold" transition={{ delay: 0.3 }}>
               {greeting}, Welcome to
             </motion.h1>
-            <motion.h2
-              className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-1"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
+            <motion.h2 className="text-2xl sm:text-3xl md:text-5xl font-bold" transition={{ delay: 0.5 }}>
               Chapter 1 Cafe
             </motion.h2>
-            <motion.p
-              className="text-base sm:text-lg md:text-xl text-white/90 mb-2"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-            >
+            <motion.p className="text-sm sm:text-base md:text-lg text-white/90" transition={{ delay: 0.7 }}>
               {suggestion}
             </motion.p>
             <motion.div
-              className="flex justify-center items-center gap-2 text-base sm:text-lg font-semibold mb-4"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              className="flex justify-center items-center gap-2 text-xs sm:text-sm md:text-base font-semibold"
               transition={{ delay: 0.8 }}
             >
-              Katwaria Sarai,Qutab Institutional Area{" "}
-              <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-green-200 fill-current animate-pulse" />
+              Katwaria Sarai, Qutab Institutional Area{" "}
+              <Heart className="w-5 h-5 text-green-200 fill-current animate-pulse" />
             </motion.div>
-            {/* Partners Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-            >
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white mb-3">
-                Our Online Partners
-              </h3>
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-10">
+
+            {/* Partner Logos */}
+            <motion.div transition={{ delay: 1 }}>
+              <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-3">Our Online Partners</h3>
+              <div className="flex flex-wrap justify-center gap-4">
                 {partnerImages.map((partner, idx) => (
                   <motion.div
                     key={partner.alt}
-                    className={`relative flex flex-col items-center bg-white/90 rounded-xl ${partner.shadow} px-3 py-3 sm:px-5 sm:py-4 w-24 sm:w-32 md:w-40 hover:scale-105 hover:shadow-2xl transition-all duration-300 group`}
+                    className="relative bg-white/90 rounded-xl px-3 py-2 w-[90px] sm:w-[100px] md:w-[120px] text-center hover:scale-105 transition duration-300"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.1 + idx * 0.1 }}
                   >
-                    <span className={`block absolute left-1 top-1 ${partner.badgeColor} text-white text-[10px] sm:text-xs px-2 py-0.5 rounded-full shadow-lg z-10`}>
+                    <span className={`absolute left-1 top-1 ${partner.badgeColor} text-white text-[10px] sm:text-xs px-2 py-0.5 rounded-full shadow-lg`}>
                       {partner.badge}
                     </span>
                     <img
                       src={partner.src}
                       alt={partner.alt}
-                      className="w-12 h-12 sm:w-16 sm:h-16 object-contain mb-1 sm:mb-2 rounded-xl shadow group-hover:scale-110 group-hover:brightness-95 transition"
+                      className="w-10 h-10 sm:w-12 sm:h-12 object-contain mb-1 mx-auto rounded shadow"
                       draggable={false}
                     />
-                    <span className="text-xs sm:text-base font-bold mt-1" style={{ color: partner.alt === "Zomato" ? "#E23744" : partner.alt === "Swiggy" ? "#FC8019" : "#6C47FF" }}>
+                    <span
+                      className="text-xs sm:text-sm font-bold"
+                      style={{ color: partner.alt === "Zomato" ? "#E23744" : partner.alt === "Swiggy" ? "#FC8019" : "#6C47FF" }}
+                    >
                       {partner.alt}
                     </span>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
-            {/* Instagram and Map */}
-            <motion.div
-              className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2 }}
-            >
+
+            {/* Instagram & Map */}
+            <motion.div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4" transition={{ delay: 1.2 }}>
               {/* Instagram */}
-              <div className="flex flex-col items-center bg-white/90 rounded-2xl shadow-lg px-4 py-3 w-full max-w-xs mb-4 md:mb-0">
+              <div className="flex flex-col items-center bg-white/90 rounded-2xl shadow-lg px-4 py-3 w-full max-w-xs">
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
                   alt="Instagram"
@@ -251,32 +216,24 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
                 <span className="text-sm sm:text-base font-bold" style={{ color: "#E1306C" }}>
                   @cafe_chapter_1
                 </span>
-                <span className="text-xs text-gray-600 text-center mt-1 max-w-xs">
-                  New items &amp; offers announced first on Instagram!
+                <span className="text-xs text-gray-600 text-center mt-1">
+                  New items & offers announced first on Instagram!
                   <br />
-                  <span className="font-semibold text-green-700">
-                    Follow us for more &amp; exciting outlet offers!
-                  </span>
+                  <span className="font-semibold text-green-700">Follow us for more & exciting outlet offers!</span>
                 </span>
               </div>
-              {/* Google Map */}
+              {/* Map */}
               <div className="flex flex-col items-center bg-white/90 rounded-2xl shadow-lg px-4 py-3 w-full max-w-xs">
                 <MapPin className="w-7 h-7 sm:w-8 sm:h-8 text-green-700 mb-2" />
-                <span className="text-sm sm:text-base font-bold text-green-700">
-                  Find our other outlet
-                </span>
+                <span className="text-sm sm:text-base font-bold text-green-700">Find our other outlet</span>
                 <span className="text-xs text-gray-600 text-center mt-1">
                   135/3, Gautam Nagar, Yusuf Sarai, New Delhi
                 </span>
               </div>
             </motion.div>
+
             {/* Daily Quote */}
-            <motion.div
-              className="mt-6 text-xs sm:text-base italic text-white/80"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.4 }}
-            >
+            <motion.div className="mt-6 text-xs sm:text-sm md:text-base italic text-white/80" transition={{ delay: 1.4 }}>
               <span>“{quote}”</span>
             </motion.div>
             <div className="mt-2 text-xs text-white/80">
