@@ -180,7 +180,7 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              Chapter-1
+              Chapter 1 Cafe
             </motion.h2>
             <motion.p
               className="text-base sm:text-lg md:text-xl text-white/90 mb-2"
@@ -196,7 +196,7 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
-              Katwaria Sarai{" "}
+              Katwaria Sarai,Qutab Institutional Area{" "}
               <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-green-200 fill-current animate-pulse" />
             </motion.div>
             {/* Partners Section */}
